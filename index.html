@@ -1,0 +1,196 @@
+<html>
+	<head>
+		<script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap-responsive.min.css">
+		<style>
+			body{
+				/*font-family: "Brush Script MT", cursive;*/
+				font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+			}
+
+			.intro-section {
+			    height: 100%;
+			    padding-top: 70px;
+			   /* background: #fff;*/
+			    
+				background-image: url("./img/download_1.jpg");
+				/*background-repeat: no-repeat;*/
+			}
+
+			.container{
+				border-radius: 2px;
+				background-color: #880000;
+				height:100%;
+				width: 61%;
+			}
+
+			#sel_target {
+				color :#397D02;
+				font-size: 30px;
+				/*font-family: "Brush Script MT", cursive;*/
+				font-weight: 700;
+				border-width: 0px;
+				width: 100%;
+				text-align: center;
+	            margin : 0 auto;
+			}
+			.validation {
+		      color: red;
+		      margin-bottom: 20px;
+		    }
+		    #target {
+			    outline: none;
+			    text-align: center;
+			    display: block;
+			    padding: 0px 80px 0px 24px;
+			    background: #dce7ea;
+			    border: 0;
+			    -webkit-appearance: none;
+			    border-radius: 0;
+			    vertical-align: baseline;
+			    box-shadow: none;
+			    color: #000;
+			    font-size: 20px;
+			    line-height: 20px;
+			    height: 60px;
+			    font-weight: 600;
+			    padding-right: 20px;
+			    width:100%;
+			}
+
+			#fruit_names_display p {
+			   display:inline-block;
+			   padding:5px 5px 5px 5px;
+			   margin-left:5px;
+			   float:left;
+			   background-color: #dce7ea;
+			   color:#000;
+			   text-align: center;
+			   border-radius: 2px;
+			    font-size: 20px;
+			}
+
+			/*.fixedElement {
+			    background-color: #c0c0c0;
+			    position:fixed;
+			    top:0;
+			    width:100%;
+			    z-index:100;
+			}*/
+
+			.formatting{
+				margin-bottom: 20px;
+			}
+
+			.fomat_margin_left{
+				margin-left: 8px;
+			}
+			.fomat_margin_top{
+				margin-top: 20px;
+			}
+			.style-color{
+				color:#fff;
+				text-align: center;
+				/*font-family: "Brush Script MT", cursive;*/
+				font-size: 40px;
+			}
+
+			::-webkit-input-placeholder {
+			   font-size: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<section id="intro" class="intro-section">
+	        <div class="container">
+	        	<div class="row">
+	                <div class="col-lg-12 fixedElement formatting fomat_margin_top">
+	                	<h1 class="style-color">Welcome to fun activity !!!</h1>
+					</div>
+				</div>
+	            <div class="row">
+	                <div class="col-lg-12 fixedElement formatting fomat_margin_top">
+	                	<div class="row">
+		                	<div class="col-md-4 col-md-offset-4">
+		                		<input type="textarea" id="target" placeholder="Enter fruit name">
+		                	</div>
+		                </div>
+					</div>
+				</div>
+				<div class="row">
+	                <div class="col-lg-12 fixedElement formatting fomat_margin_left">
+		              	<input type="textarea" id="sel_target" readonly>
+		                	
+	                </div>
+	            </div>
+	            <div class="row">
+	                <div class="col-lg-12" id="fruit_names" style="display:none;">
+
+	                </div>
+	                <div class="col-lg-12 formatting fomat_margin_left" id="fruit_names_display">
+
+	                </div>
+	            </div>
+	            </div>
+	        </div>
+	    </section>
+		<script>
+			$( "#target" ).keyup(function( event ) {
+				var fruit_name=$("#target").val();
+
+				if(/^[a-zA-Z0-9- ]*$/.test(fruit_name) == false) {
+					if (!($('#validation_fruit').length)){
+				         $("#target").parent().after("<div class='validation' id='validation_fruit' style='color:red;margin-bottom: 20px;'>Special character entered</div>");
+				    	return;
+				    }  
+				}else{
+					var matches = fruit_name.match(/\d+/g);
+					if (matches != null) {
+					    if (!($('#validation_fruit').length)){
+					         $("#target").parent().after("<div class='validation' id='validation_fruit' style='color:red;margin-bottom: 20px;'>Number entered</div>");
+					    	return;
+					    } 
+					}else{
+						$("#target").parent().next(".validation").remove(); // remove it
+						if ( event.which == 32 || event.which == 13 ) {
+							if(event.which == 13){
+								fruit_name=fruit_name+" ";
+							}
+							$("#target").val('');
+
+							if(fruit_name!=" "){
+								$("#fruit_names").append(fruit_name);
+								$("#fruit_names_display").append("<p>"+fruit_name.trim()+"</p>");
+								var all_fruit=$("#fruit_names").html();
+								var fruit_array = all_fruit.split(" ");
+								var array_fruit=new Array();
+
+								var counter=0;
+								for(i=1;i<fruit_array.length;i++){
+									if(fruit_array[i]!=""){
+										array_fruit[counter]=fruit_array[i];
+										counter++;
+									}
+									
+								}
+
+								var selected_fruit=randomFrom(array_fruit);
+								$("#sel_target").val(selected_fruit);
+							}
+						}
+					}
+				}
+			});
+
+			function randomFrom(arr){
+			    var randomIndex = Math.floor(Math.random() * arr.length);
+			    console.log(randomIndex);
+			    return arr[randomIndex];
+			}
+
+		</script>
+	</body>
+</html>
