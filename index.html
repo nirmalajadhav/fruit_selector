@@ -12,19 +12,18 @@
 			}
 
 			.intro-section {
-			    height: 100%;
+			    min-height: 100%;
 			    padding-top: 70px;
-			   /* background: #fff;*/
-			    
-				background-image: url("./img/download_1.jpg");
-				/*background-repeat: no-repeat;*/
+				background-image:url("./img/download_1.jpg") !important;
+				background-size: cover !important;
+				background-size: 100% 100%;
 			}
 
 			.container{
 				border-radius: 2px;
 				background-color: #880000;
-				height:100%;
-				width: 61%;
+				min-height:100%;
+				width: 80%;
 			}
 
 			#sel_target {
@@ -73,14 +72,6 @@
 			    font-size: 20px;
 			}
 
-			/*.fixedElement {
-			    background-color: #c0c0c0;
-			    position:fixed;
-			    top:0;
-			    width:100%;
-			    z-index:100;
-			}*/
-
 			.formatting{
 				margin-bottom: 20px;
 			}
@@ -94,6 +85,7 @@
 			.style-color{
 				color:#fff;
 				text-align: center;
+				text-shadow: 1px 1px 0 #080808, 2px 2px 0 #000000;
 				/*font-family: "Brush Script MT", cursive;*/
 				font-size: 40px;
 			}
@@ -134,9 +126,8 @@
 
 	                </div>
 	            </div>
-	            </div>
-	        </div>
-	    </section>
+	    	</div>
+		</section>
 		<script>
 			$( "#target" ).keyup(function( event ) {
 				var fruit_name=$("#target").val();
@@ -162,8 +153,11 @@
 							$("#target").val('');
 
 							if(fruit_name!=" "){
+								var fruit_name_entered = fruit_name.split(" ");
+								for(i=0;i<fruit_name_entered.length-1;i++){
+								$("#fruit_names_display").append("<p>"+fruit_name_entered[i].trim()+"</p>");
+								}
 								$("#fruit_names").append(fruit_name);
-								$("#fruit_names_display").append("<p>"+fruit_name.trim()+"</p>");
 								var all_fruit=$("#fruit_names").html();
 								var fruit_array = all_fruit.split(" ");
 								var array_fruit=new Array();
