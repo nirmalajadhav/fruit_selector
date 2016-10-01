@@ -93,6 +93,14 @@
 			::-webkit-input-placeholder {
 			   font-size: 15px;
 			}
+
+			.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {  
+  50% { opacity: 0; }
+}
 		</style>
 	</head>
 	<body>
@@ -134,14 +142,14 @@
 
 				if(/^[a-zA-Z0-9- ]*$/.test(fruit_name) == false) {
 					if (!($('#validation_fruit').length)){
-				         $("#target").parent().after("<div class='validation' id='validation_fruit' style='color:red;margin-bottom: 20px;'>Special character entered</div>");
+				         $("#target").parent().after("<span class='validation blink_me' id='validation_fruit' style='color:red;background-color:#fff;margin-bottom: 20px; padding:5px 5px 5px 5px'>Special character entered</span>");
 				    	return;
 				    }  
 				}else{
 					var matches = fruit_name.match(/\d+/g);
 					if (matches != null) {
 					    if (!($('#validation_fruit').length)){
-					         $("#target").parent().after("<div class='validation' id='validation_fruit' style='color:red;margin-bottom: 20px;'>Number entered</div>");
+					         $("#target").parent().after("<span class='validation blink_me' id='validation_fruit' style='color:red;background-color:#fff;margin-bottom: 20px; padding:5px 5px 5px 5px; '>Number entered</span>");
 					    	return;
 					    } 
 					}else{
