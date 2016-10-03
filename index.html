@@ -2,117 +2,21 @@
 	<head>
 		<script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
 		<script type="text/javascript" src="./js/bootstrap.min.js"></script>
-		
+		<script type="text/javascript" src="./js/bootstrap.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/custom_style.css">
 		<link rel="stylesheet" type="text/css" href="./css/bootstrap-responsive.min.css">
-		<style>
-			body{
-				/*font-family: "Brush Script MT", cursive;*/
-				font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
-			}
-
-			.intro-section {
-			    min-height: 100%;
-			    padding-top: 70px;
-				background-image:url("./img/download_1.jpg") !important;
-				background-size: cover !important;
-				background-size: 100% 100%;
-			}
-
-			.container{
-				border-radius: 2px;
-				background-color: #880000;
-				min-height:100%;
-				width: 80%;
-			}
-
-			#sel_target {
-				color :#397D02;
-				font-size: 30px;
-				/*font-family: "Brush Script MT", cursive;*/
-				font-weight: 700;
-				border-width: 0px;
-				width: 100%;
-				text-align: center;
-	            margin : 0 auto;
-			}
-			.validation {
-		      color: red;
-		      margin-bottom: 20px;
-		    }
-		    #target {
-			    outline: none;
-			    text-align: center;
-			    display: block;
-			    padding: 0px 80px 0px 24px;
-			    background: #dce7ea;
-			    border: 0;
-			    -webkit-appearance: none;
-			    border-radius: 0;
-			    vertical-align: baseline;
-			    box-shadow: none;
-			    color: #000;
-			    font-size: 20px;
-			    line-height: 20px;
-			    height: 60px;
-			    font-weight: 600;
-			    padding-right: 20px;
-			    width:100%;
-			}
-
-			#fruit_names_display p {
-			   display:inline-block;
-			   padding:5px 5px 5px 5px;
-			   margin-left:5px;
-			   float:left;
-			   background-color: #dce7ea;
-			   color:#000;
-			   text-align: center;
-			   border-radius: 2px;
-			    font-size: 20px;
-			}
-
-			.formatting{
-				margin-bottom: 20px;
-			}
-
-			.fomat_margin_left{
-				margin-left: 8px;
-			}
-			.fomat_margin_top{
-				margin-top: 20px;
-			}
-			.style-color{
-				color:#fff;
-				text-align: center;
-				text-shadow: 1px 1px 0 #080808, 2px 2px 0 #000000;
-				/*font-family: "Brush Script MT", cursive;*/
-				font-size: 40px;
-			}
-
-			::-webkit-input-placeholder {
-			   font-size: 15px;
-			}
-
-			.blink_me {
-  animation: blinker 1s linear infinite;
-}
-
-@keyframes blinker {  
-  50% { opacity: 0; }
-}
-		</style>
 	</head>
 	<body>
 		<section id="intro" class="intro-section">
 	        <div class="container">
 	        	<div class="row">
-	                <div class="col-lg-12 fixedElement formatting fomat_margin_top">
+	                <div class="col-lg-12 formatting fomat_margin_top">
 	                	<h1 class="style-color">Welcome to fun activity !!!</h1>
 					</div>
 				</div>
 	            <div class="row">
-	                <div class="col-lg-12 fixedElement formatting fomat_margin_top">
+	                <div class="col-lg-12 formatting fomat_margin_top">
 	                	<div class="row">
 		                	<div class="col-md-4 col-md-offset-4">
 		                		<input type="textarea" id="target" placeholder="Enter fruit name">
@@ -121,7 +25,7 @@
 					</div>
 				</div>
 				<div class="row">
-	                <div class="col-lg-12 fixedElement formatting fomat_margin_left">
+	                <div class="col-lg-12 formatting fomat_margin_left">
 		              	<input type="textarea" id="sel_target" readonly>
 		                	
 	                </div>
@@ -139,7 +43,6 @@
 		<script>
 			$( "#target" ).keyup(function( event ) {
 				var fruit_name=$("#target").val();
-
 				if(/^[a-zA-Z0-9- ]*$/.test(fruit_name) == false) {
 					if (!($('#validation_fruit').length)){
 				         $("#target").parent().after("<span class='validation blink_me' id='validation_fruit' style='color:red;background-color:#fff;margin-bottom: 20px; padding:5px 5px 5px 5px'>Special character entered</span>");
@@ -186,13 +89,11 @@
 					}
 				}
 			});
-
 			function randomFrom(arr){
 			    var randomIndex = Math.floor(Math.random() * arr.length);
 			    console.log(randomIndex);
 			    return arr[randomIndex];
 			}
-
 		</script>
 	</body>
 </html>

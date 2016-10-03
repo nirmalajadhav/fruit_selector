@@ -1,0 +1,93 @@
+body{
+	font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.intro-section {
+    min-height: 100%;
+    padding-top: 70px;
+	background-image:url("./img/download_1.jpg") !important;
+	background-size: cover !important;
+	background-size: 100% 100%;
+}
+
+.container{
+	border-radius: 2px;
+	background-color: #880000;
+	min-height:100%;
+	width: 80%;
+}
+
+#sel_target {
+	color :#397D02;
+	font-size: 30px;
+	/*font-family: "Brush Script MT", cursive;*/
+	font-weight: 700;
+	border-width: 0px;
+	width: 100%;
+	text-align: center;
+    margin : 0 auto;
+}
+.validation {
+  color: red;
+  margin-bottom: 20px;
+}
+#target {
+    outline: none;
+    text-align: center;
+    display: block;
+    padding: 0px 80px 0px 24px;
+    background: #dce7ea;
+    border: 0;
+    -webkit-appearance: none;
+    border-radius: 0;
+    vertical-align: baseline;
+    box-shadow: none;
+    color: #000;
+    font-size: 20px;
+    line-height: 20px;
+    height: 60px;
+    font-weight: 600;
+    padding-right: 20px;
+    width:100%;
+}
+
+#fruit_names_display p {
+   display:inline-block;
+   padding:5px 5px 5px 5px;
+   margin-left:5px;
+   float:left;
+   background-color: #dce7ea;
+   color:#000;
+   text-align: center;
+   border-radius: 2px;
+    font-size: 20px;
+}
+
+.formatting{
+	margin-bottom: 20px;
+}
+
+.fomat_margin_left{
+	margin-left: 8px;
+}
+.fomat_margin_top{
+	margin-top: 20px;
+}
+.style-color{
+	color:#fff;
+	text-align: center;
+	text-shadow: 1px 1px 0 #080808, 2px 2px 0 #000000;
+	/*font-family: "Brush Script MT", cursive;*/
+	font-size: 40px;
+}
+
+::-webkit-input-placeholder {
+	font-size: 15px;
+}
+.blink_me {
+	animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {  
+  50% { opacity: 0; }
+}
