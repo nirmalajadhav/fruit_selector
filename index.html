@@ -45,14 +45,14 @@
 				var fruit_name=$("#target").val();
 				if(/^[a-zA-Z0-9- ]*$/.test(fruit_name) == false) {
 					if (!($('#validation_fruit').length)){
-				         $("#target").parent().after("<span class='validation blink_me' id='validation_fruit' style='color:red;background-color:#fff;margin-bottom: 20px; padding:5px 5px 5px 5px'>Special character entered</span>");
+				         $("#target").parent().after("<span class='validation blink_me' id='validation_fruit' style='color:red;background-color:#fff;margin-bottom: 20px; padding:5px 5px 5px 5px'>Special characters not allowed</span>");
 				    	return;
 				    }  
 				}else{
 					var matches = fruit_name.match(/\d+/g);
 					if (matches != null) {
 					    if (!($('#validation_fruit').length)){
-					         $("#target").parent().after("<span class='validation blink_me' id='validation_fruit' style='color:red;background-color:#fff;margin-bottom: 20px; padding:5px 5px 5px 5px; '>Number entered</span>");
+					         $("#target").parent().after("<span class='validation blink_me' id='validation_fruit' style='color:red;background-color:#fff;margin-bottom: 20px; padding:5px 5px 5px 5px; '>Number not allowed</span>");
 					    	return;
 					    } 
 					}else{
