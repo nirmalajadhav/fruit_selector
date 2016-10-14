@@ -21,6 +21,9 @@
 		                	<div class="col-md-4 col-md-offset-4">
 		                		<input type="textarea" id="target" placeholder="Enter fruit name">
 		                	</div>
+		                	<div class="col-md-2 col-md-offset-2">
+		                		<button type="submit" id="random_generate">Generate random</button>
+		                	</div>
 		                </div>
 					</div>
 				</div>
@@ -41,6 +44,7 @@
 	    	</div>
 		</section>
 		<script>
+
 			$( "#target" ).keyup(function( event ) {
 				var fruit_name=$("#target").val();
 				if(/^[a-zA-Z0-9- ]*$/.test(fruit_name) == false) {
@@ -94,6 +98,23 @@
 			    console.log(randomIndex);
 			    return arr[randomIndex];
 			}
+			$("#random_generate").click(function( event ) {
+				var all_fruit=$("#fruit_names").html();
+				var fruit_array = all_fruit.split(" ");
+				var array_fruit=new Array();
+
+				var counter=0;
+				for(i=1;i<fruit_array.length;i++){
+					if(fruit_array[i]!=""){
+						array_fruit[counter]=fruit_array[i];
+						counter++;
+					}
+					
+				}
+
+				var selected_fruit=randomFrom(array_fruit);
+				$("#sel_target").val(selected_fruit);
+			});
 		</script>
 	</body>
 </html>
